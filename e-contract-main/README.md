@@ -21,22 +21,26 @@ This application consists of:
 
 ### 1. Bring up Certificate Authority (CA)
 ```bash
-cd e-contract-main/blockchain/artifacts/channel/create-certificate-with-ca
-sudo docker-compose up -d
+    cd e-contract-main/blockchain/artifacts/channel/create-certificate-with-ca
+    sudo docker-compose up -d
 
-This will start the CA containers required for certificate generation.
-2. Generate Certificates
-bash./create-certificate-with-ca.sh
-This creates cryptographic materials in e-contract-main/blockchain/artifacts/channel/crypto-config
-3. Create Channel Artifacts
-bashcd e-contract-main/blockchain/artifacts/channel
-./create-artifacts.sh
-This generates the genesis block in e-contract-main/blockchain/channel-artifacts
-4. Start Orderers and Peers
+- This will start the CA containers required for certificate generation.
+### 2. Generate Certificates
+```bash
+    ./create-certificate-with-ca.sh
+
+- This creates cryptographic materials in e-contract-main/blockchain/artifacts/channel/crypto-config
+### 3. Create Channel Artifacts
+
+    cd e-contract-main/blockchain/artifacts/channel
+    ./create-artifacts.sh
+
+-  This generates the genesis block in e-contract-main/blockchain/channel-artifacts
+### 4. Start Orderers and Peers
 bashcd e-contract-main/blockchain/artifacts
 sudo docker-compose up -d
 This will start 7 containers (orderers and peer nodes).
-5. Create and Join Channel
+### 5. Create and Join Channel
 bashcd e-contract-main/blockchain/scripts
 ./createChannel.sh
 Expected Output:
@@ -51,6 +55,6 @@ Status: 201
 }
 ...
 Successfully submitted proposal to join channel
-6. Deploy Chaincode
+### 6. Deploy Chaincode
 bashcd e-contract-main/blockchain/scripts
 ./deployChaincode.sh
