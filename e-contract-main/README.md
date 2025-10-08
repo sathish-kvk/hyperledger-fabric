@@ -20,41 +20,50 @@ This application consists of:
 ## 🚀 Quick Start
 
 ### 1. Bring up Certificate Authority (CA)
-```bash
-    cd e-contract-main/blockchain/artifacts/channel/create-certificate-with-ca
+
+    cd e-contract-main/blockchain/artifacts/channel/reate-certificate-with-ca
     sudo docker-compose up -d
 
-- This will start the CA containers required for certificate generation.
+    This will start the CA containers required for certificate Generation.
+
 ### 2. Generate Certificates
-```bash
+
     ./create-certificate-with-ca.sh
 
-- This creates cryptographic materials in e-contract-main/blockchain/artifacts/channel/crypto-config
+    This creates cryptographic materials in e-contract-main/blockchain/artifacts/channel/crypto-config
+
 ### 3. Create Channel Artifacts
 
     cd e-contract-main/blockchain/artifacts/channel
     ./create-artifacts.sh
 
--  This generates the genesis block in e-contract-main/blockchain/channel-artifacts
+    This generates the genesis block in e-contract-main/blockchain/channel-artifacts
+    
 ### 4. Start Orderers and Peers
-bashcd e-contract-main/blockchain/artifacts
-sudo docker-compose up -d
-This will start 7 containers (orderers and peer nodes).
+
+    cd e-contract-main/blockchain/artifacts
+    sudo docker-compose up -d
+
+    This will start 7 containers (orderers and peer nodes).
+
 ### 5. Create and Join Channel
-bashcd e-contract-main/blockchain/scripts
-./createChannel.sh
+    
+    cd e-contract-main/blockchain/scripts
+    ./createChannel.sh
+
 Expected Output:
-Using organization 1
-Status: 201
-{
-  "name": "mychannel",
-  "url": "/participation/v1/channels/mychannel",
-  "consensusRelation": "consenter",
-  "status": "active",
-  "height": 1
-}
-...
-Successfully submitted proposal to join channel
+    Using organization 1
+    Status: 201
+    {
+    "name": "mychannel",
+    "url": "/participation/v1/channels/mychannel",
+    "consensusRelation": "consenter",
+    "status": "active",
+    "height": 1
+    }
+    ...
+    Successfully submitted proposal to join channel
+
 ### 6. Deploy Chaincode
-bashcd e-contract-main/blockchain/scripts
-./deployChaincode.sh
+    cd e-contract-main/blockchain/scripts
+    ./deployChaincode.sh
